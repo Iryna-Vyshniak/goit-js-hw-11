@@ -18,14 +18,11 @@ export function createMarkup(photos) {
               <img class="photo" src="${webformatURL}" alt="${tags}" loading="lazy" />
               <div class="info">
                 <div class="info-item info-item-likes">
-                  <label class="circle">
-                    <input type="checkbox" name="heart">
-                    <div class="icon-box">
-                    <i class="bi bi-heart-fill"></i>
-                    </div>
-                  </label>
+                  <button type="button" class="circle">
+                    <i class="bi bi-heart-fill" onclick="style.color='#ff0000'"></i>
+                  </button>
                   <span class="box-likes"><b>Likes</b>
-                  ${likes}
+                  ${likes}</span>
                   </span>
                 </div>
                 <p class="info-item">

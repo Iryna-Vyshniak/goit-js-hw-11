@@ -86,32 +86,23 @@
 }
 
 
-.box-likes{
-display: flex;
-flex-direction: column;
-align-items: center;
+.box-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-label.circle {
-  position: relative;
+button.circle {
   display: flex;
   align-items: center;
   justify-content: center;
 
   margin-right: 10px;
+  border: none;
+  outline: none;
 
   width: 100%;
   cursor: pointer;
-
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .icon-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     width: 34px;
     height: 34px;
@@ -120,60 +111,41 @@ label.circle {
 
     box-shadow: -2px -2px 5px white, 3px 3px 5px rgba(0, 0, 0, 0.1);
 
-    &:hover + .bi {
-        color: #ff0000;
-      }
-
-            &:checked + .icon-box {
-              color: #ff0000;
-              box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
-            }
-}
-
-  &:checked + * .icon-box {
-    color: #ff0000;
-    box-shadow: inset -2px -2px 5px white, inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+    &:hover{
+    box-shadow: inset -1px -1px 3px white, inset 1px 1px 3px rgba(0, 0, 0, 0.1);
   }
+    &:hover > .bi {
+      color: #ff0000;
+      transform: scale(0.8);
+    }
 
-
-  &:hover ~ * .bi {
-    color: #ff0000;
-  }
-
-}
-
-input[type="checkbox"] {
-  width: 100%;
-  background-color: transparent;
-  box-shadow: inset 2px 2px 5px #BABECC,
-    inset -5px -5px 10px #FFF;
-  transition: all 0.2s ease-in-out;
-
-  &:focus {
-    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
-  }
-  &:hover + * .bi{
-  color: #ff0000;
-  }
-    &:checked ~ .icon-box .bi {
-      transform: scale(0.95);
+    &:active > .bi {
       color: #ff0000;
     }
+  
+  &:active {
+    box-shadow: inset -1px -1px 3px white,
+      inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover > .bi {
+    color: #ff0000;
+  }
+
 }
 
-.icon-box .bi {
+.bi {
   width: 16px;
   color: #fff;
-  
+
 
   &:hover {
-  color: #ff0000;
+    color: #ff0000;
   }
 }
 
-
-
-
+  
+  
 
 .is-hidden {
   visibility: hidden;
