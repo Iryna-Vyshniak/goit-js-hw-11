@@ -1,0 +1,116 @@
+/// spin/js
+///
+// @keyframes spinner-line-fade-more {
+//   0%,
+//   100% {
+//     opacity: 0; /* minimum opacity */
+//   }
+//   1% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes spinner-line-fade-quick {
+//   0%,
+//   39%,
+//   100% {
+//     opacity: 0.25; /* minimum opacity */
+//   }
+//   40% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes spinner-line-fade-default {
+//   0%,
+//   100% {
+//     opacity: 0.22; /* minimum opacity */
+//   }
+//   1% {
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes spinner-line-shrink {
+//   0%,
+//   25%,
+//   100% {
+//     /* minimum scale and opacity */
+//     transform: scale(0.5);
+//     opacity: 0.25;
+//   }
+//   26% {
+//     transform: scale(1);
+//     opacity: 1;
+//   }
+// }
+
+///
+/// svg spinner
+///
+
+
+
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* фоновый цвет */
+    background: #92729574;
+    z-index: 1001;
+
+    padding: 20px;
+    outline: none;
+    border: none;
+        box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+}
+
+.preloader__image {
+    position: relative;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+
+    text-align: center;
+    animation: waves 1000ms ease-in-out infinite; 
+    fill: #AE1100;
+}
+
+@keyframes waves {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+.loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+}
+
+.loaded .preloader {
+    display: none;
+}
+
+.loading .preloader {
+    display: flex;
+}
+
