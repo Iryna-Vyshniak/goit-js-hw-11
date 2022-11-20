@@ -21,9 +21,10 @@ export function createMarkup(photos) {
                   <button type="button" class="circle">
                     <i class="bi bi-heart-fill" onclick="style.color='#ff0000'"></i>
                   </button>
-                  <span class="box-likes"><b>Likes</b>
-                  ${likes}</span>
-                  </span>
+                  <div class="box-likes"><b>Likes</b>
+                  <span id="value">${likes}</span>
+                  </div>
+                  
                 </div>
                 <p class="info-item">
                   <b>Views</b>

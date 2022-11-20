@@ -4,11 +4,6 @@ html {
     // background: radial-gradient(circle 610px at 5.2% 51.6%, rgb(241, 223, 255) 0%, rgb(225, 225, 255) 97.5%) no-repeat fixed;
 }
 
-body {
-    padding-top: 15px;
-    padding-bottom: 120px;
-}
-
 p {
     margin: 0;
     padding: 0;
@@ -39,33 +34,6 @@ a {
         max-width: 1024px;
         padding-left: 32px;
         padding-right: 32px;
-    }
-
-    @include desktop {
-        width: 100%;
-        max-width: 1280px;
-    }
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    @media screen and (min-width: 480px) {
-        // max-width: 550px;
-        width: 480px;
-    }
-
-    @include tablet {
-        width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    @media screen and (min-width: 1024px) {
-        width: 1024px;
     }
 
     @include desktop {
