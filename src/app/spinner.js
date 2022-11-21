@@ -33,22 +33,6 @@ import { refs } from './refs';
 //   spinner.stop();
 // }
 
-///////////////////
-// spiner svg
-
-export function spinnerPlay() {
-  refs.body.classList.add('loading');
-  // refs.backdrop.classList.remove('is-hidden');
-}
-
-export function spinnerStop() {
-  window.setTimeout(function () {
-    refs.body.classList.remove('loading');
-    refs.body.classList.add('loaded');
-    // refs.backdrop.classList.add('is-hidden');
-  }, 1500);
-}
-
 // const spinner = new Spinner(opts);
 // export function spinerPlay() {
 //     refs.backdrop.classList.remove('is-hidden');
@@ -60,3 +44,16 @@ export function spinnerStop() {
 //     spinner.stop();
 //     refs.backdrop.classList.add('is-hidden');
 // }
+
+// spinner span
+
+export function spinnerPlay() {
+  refs.body.classList.add('loading');
+}
+
+export function spinnerStop() {
+  window.setTimeout(function () {
+    refs.body.classList.remove('loading');
+    refs.body.classList.add('loaded');
+  }, 1500);
+}
