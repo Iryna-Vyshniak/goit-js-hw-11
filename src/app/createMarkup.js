@@ -18,7 +18,7 @@ export function createMarkup(photos) {
               <img class="photo" src="${webformatURL}" alt="${tags}" loading="lazy" />
               <div class="info">
                 <div class="info-item info-item-likes">
-                  <button type="button" class="circle">
+                  <button type="button" class="circle" onclick="style.boxShadow='inset -1px -1px 3px white, inset 1px 1px 3px rgba(0, 0, 0, 0.1)'">
                     <i class="bi bi-heart-fill" onclick="style.color='#ff0000'"></i>
                   </button>
                   <div class="box-likes"><b>Likes</b>
