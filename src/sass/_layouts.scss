@@ -70,50 +70,51 @@ a {
     flex-direction: column;
     align-items: center;
     position: fixed;
-    bottom: 20px;
-    right: 30px;
+    bottom: 1.25rem;
+    right: 1.875rem;
     z-index: 99;
     border: none;
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
 }
 
 .btn-up-text {
-    margin-bottom: 15px;
+    margin-bottom: .9375rem;
     font-family: inherit;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
-    text-align: center; 
+    text-align: center;
     color: #AE1100;
     text-shadow: 0.5px 0.5px 0.5px rgb(255, 255, 255), 0.7px 0.7px 0.7px rgb(0, 0, 0);
 }
 
 .btn-up-wrapper__btn {
-    padding: 20px;
+    padding: 1.25rem;
     outline: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 3.125rem;
 
-        box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
-&:hover {
-background-image: linear-gradient(-225deg,
-                        rgb(241, 223, 255) 0%,
-                        rgb(225, 225, 255) 50%,
-                        rgba(186, 134, 231, 0.843) 100%);
-                        animation: animate 1500ms linear infinite;
+    &:hover {
+        background-image: linear-gradient(-225deg,
+                rgb(241, 223, 255) 0%,
+                rgb(225, 225, 255) 50%,
+                rgba(186, 134, 231, 0.843) 100%);
+        animation: animate 1500ms linear infinite;
 
         box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
     }
+
     &:active {
         box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
-    }  
+    }
 }
 
-.icon-arrow{
-fill: #AE1100;
+.icon-arrow {
+    fill: #AE1100;
 }
 
 @keyframes animate {
@@ -125,5 +126,3 @@ fill: #AE1100;
         transform: rotate(360deg) scale(1);
     }
 }
-
-

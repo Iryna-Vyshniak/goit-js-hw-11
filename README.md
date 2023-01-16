@@ -1,21 +1,6 @@
 **Read in other languages: [Русский](README.md), [Українська](README.ua.md),
 [English](README.en.md), [Español](README.es.md), [Polski](README.pl.md).**
 
-# Критерії приймання
-
-- Створено репозиторій `goit-js-hw-11`.
-- Домашня робота містить два посилання: на вихідні файли і робочу сторінку на
-  `GitHub Pages`.
-- В консолі відсутні помилки і попередження під час відкриття живої сторінки
-  завдання.
-- Проект зібраний за допомогою
-  [parcel-project-template](https://github.com/goitacademy/parcel-project-template).
-- Для HTTP-запитів використана бібліотека [axios](https://axios-http.com/).
-- Використовується синтаксис `async/await`.
-- Для повідомлень використана бібліотека
-  [notiflix](https://github.com/notiflix/Notiflix#readme).
-- Код відформатований за допомогою `Prettier`.
-
 # Завдання - пошук зображень
 
 [![Image from Gyazo](https://i.gyazo.com/f4581ac2f654821b1c8c1cded0f52546.gif)](https://gyazo.com/f4581ac2f654821b1c8c1cded0f52546)
