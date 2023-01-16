@@ -143,7 +143,9 @@ HTML документ вже містить розмітку кнопки, по 
 > ⚠️ Наступний функціонал не обов'язковий для здавання завдання, але буде
 > хорошою додатковою практикою.
 
+
 [![Image from Gyazo](https://i.gyazo.com/7b2667491efea7d995119fb39840e56e.gif)](https://gyazo.com/7b2667491efea7d995119fb39840e56e)
+
 
 ### Повідомлення
 
@@ -172,6 +174,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 ```
 
 [![Image from Gyazo](https://i.gyazo.com/b20a5831b4de9bde2e819bbf22124cdb.gif)](https://gyazo.com/b20a5831b4de9bde2e819bbf22124cdb)
+
 
 ### Прокручування сторінки
 
