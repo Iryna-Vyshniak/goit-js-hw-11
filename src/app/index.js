@@ -159,7 +159,7 @@ refs.btnLoadMore.addEventListener('click', onLoadMore);
 
 function scrollPage() {
   const { height: cardHeight } = document
-    .querySelector('.gallery')
+    .querySelector('.photo-gallery')
     .firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
