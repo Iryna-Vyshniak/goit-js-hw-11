@@ -157,6 +157,7 @@ function clearPage() {
 refs.form.addEventListener('submit', onSubmitClick);
 refs.btnLoadMore.addEventListener('click', onLoadMore);
 
+//  smooth scrolling
 function scrollPage() {
   const { height: cardHeight } = document
     .querySelector('.photo-gallery')
@@ -170,9 +171,7 @@ function scrollPage() {
 
 //Button smooth scroll up
 
-window.addEventListener('scroll', () => {
-  scrollFunction();
-});
+window.addEventListener('scroll', scrollFunction);
 
 function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
