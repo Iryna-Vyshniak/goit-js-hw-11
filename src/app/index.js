@@ -110,9 +110,9 @@ const onSubmitClick = async event => {
 
   try {
     spinnerPlay();
-    const { hits, total, totalHits } = await pixaby.getPhotos();
-    console.log('hits: ', hits);
-    console.log('total: ', total);
+    const { hits, totalHits } = await pixaby.getPhotos();
+    // console.log("totalHits: ", totalHits);
+    // console.log('hits: ', hits);
 
     if (hits.length === 0) {
       Notify.failure(

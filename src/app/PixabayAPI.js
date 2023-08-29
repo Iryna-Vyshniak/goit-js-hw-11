@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
-// axios.defaults.headers.common['Authorization'] = 'Client-ID 28194821-49041d995ecd04735d9e20d11';
 const API_KEY = '28194821-49041d995ecd04735d9e20d11';
 
 export class PixabayAPI {
@@ -24,7 +23,7 @@ export class PixabayAPI {
     // const urlAXIOS = `?key=${API_KEY}&q=${this.#query}&page=${this.#page}&per_page=${this.#per_page}`;
 
     const { data } = await axios.get(urlAXIOS, { params });
-    console.log('data: ', data);
+    // console.log('data: ', data);
     return data;
   }
 
@@ -50,9 +49,9 @@ export class PixabayAPI {
   }
 
   hasMorePhotos() {
-    console.log('page', this.#page);
-    console.log('totalPhotos', this.#totalPhotos);
-    console.log('per_page', this.#per_page);
+    // console.log('page', this.#page);
+    // console.log('totalPhotos', this.#totalPhotos);
+    // console.log('per_page', this.#per_page);
     return this.#page < Math.ceil(this.#totalPhotos / this.#per_page);
   }
 }
