@@ -30,6 +30,23 @@ const options = {
   threshold: 1.0,
 };
 
+// Declaring a function to check and join an observer
+const checkAndAttachObserver = async () => {
+  if (pixaby.hasMorePhotos()) {
+    const lastItem = document.querySelector('.gallery a:last-child');
+    if (lastItem) {
+      observer.observe(lastItem);
+    } else {
+      console.log('No more items to observe.');
+    }
+  } else {
+    Notify.info(
+      "We're sorry, but you've reached the end of search results.",
+      notifyInit
+    );
+  }
+};
+
 const loadMorePhotos = async function (entries, observer) {
   entries.forEach(async entry => {
     if (entry.isIntersecting) {
@@ -45,15 +62,7 @@ const loadMorePhotos = async function (entries, observer) {
         const markup = createMarkup(hits);
         refs.gallery.insertAdjacentHTML('beforeend', markup);
 
-        // const showMore = pixaby.hasMorePhotos();
-        if (pixaby.hasMorePhotos) {
-          const lastItem = document.querySelector('.gallery a:last-child');
-          observer.observe(lastItem);
-        } else
-          Notify.info(
-            "We're sorry, but you've reached the end of search results.",
-            notifyInit
-          );
+        await checkAndAttachObserver();
 
         modalLightboxGallery.refresh();
         scrollPage();
@@ -86,13 +95,24 @@ const onSubmitClick = async event => {
     return;
   }
 
+  if (search_query === pixaby.query) {
+    Notify.warning(
+      `We already found images for "${search_query.toUpperCase()}.
+      Please, enter another phrase`,
+      notifyInit
+    );
+    return;
+  }
+
   pixaby.query = search_query;
 
   clearPage();
 
   try {
     spinnerPlay();
-    const { hits, total } = await pixaby.getPhotos();
+    const { hits, total, totalHits } = await pixaby.getPhotos();
+    console.log('hits: ', hits);
+    console.log('total: ', total);
 
     if (hits.length === 0) {
       Notify.failure(
@@ -106,18 +126,12 @@ const onSubmitClick = async event => {
     const markup = createMarkup(hits);
     refs.gallery.insertAdjacentHTML('beforeend', markup);
 
-    pixaby.setTotal(total);
-    Notify.success(`Hooray! We found ${total} images.`, notifyInit);
+    pixaby.setTotal(totalHits);
+    Notify.success(`Hooray! We found ${totalHits} images.`, notifyInit);
 
-    if (pixaby.hasMorePhotos) {
-      //refs.btnLoadMore.classList.remove('is-hidden');
-
-      const lastItem = document.querySelector('.gallery a:last-child');
-      observer.observe(lastItem);
-    }
+    await checkAndAttachObserver();
 
     modalLightboxGallery.refresh();
-    // scrollPage();
   } catch (error) {
     Notify.failure(error.message, 'Something went wrong!', notifyInit);
 
@@ -127,26 +141,28 @@ const onSubmitClick = async event => {
   }
 };
 
-const onLoadMore = async () => {
-  pixaby.incrementPage();
+// this code for button lOAD MORE
 
-  if (!pixaby.hasMorePhotos) {
-    refs.btnLoadMore.classList.add('is-hidden');
-    Notify.info("We're sorry, but you've reached the end of search results.");
-    notifyInit;
-  }
-  try {
-    const { hits } = await pixaby.getPhotos();
-    const markup = createMarkup(hits);
-    refs.gallery.insertAdjacentHTML('beforeend', markup);
+// const onLoadMore = async () => {
+//   pixaby.incrementPage();
 
-    modalLightboxGallery.refresh();
-  } catch (error) {
-    Notify.failure(error.message, 'Something went wrong!', notifyInit);
+//   if (!pixaby.hasMorePhotos) {
+//     refs.btnLoadMore.classList.add('is-hidden');
+//     Notify.info("We're sorry, but you've reached the end of search results.");
+//     notifyInit;
+//   }
+//   try {
+//     const { hits } = await pixaby.getPhotos();
+//     const markup = createMarkup(hits);
+//     refs.gallery.insertAdjacentHTML('beforeend', markup);
 
-    clearPage();
-  }
-};
+//     modalLightboxGallery.refresh();
+//   } catch (error) {
+//     Notify.failure(error.message, 'Something went wrong!', notifyInit);
+
+//     clearPage();
+//   }
+// };
 
 function clearPage() {
   pixaby.resetPage();
@@ -155,7 +171,7 @@ function clearPage() {
 }
 
 refs.form.addEventListener('submit', onSubmitClick);
-refs.btnLoadMore.addEventListener('click', onLoadMore);
+// refs.btnLoadMore.addEventListener('click', onLoadMore);
 
 //  smooth scrolling
 function scrollPage() {
